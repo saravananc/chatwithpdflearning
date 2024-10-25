@@ -1,5 +1,5 @@
 import streamlit as st
-from PyPDF2 import PdfReader  # Updated import
+from pypdf import PdfReader  # Updated to use pypdf
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -13,7 +13,7 @@ def initialize_openai_client(api_key):
 
 # Function to read and extract text from a PDF
 def read_pdf(file):
-    pdf_reader = PdfReader(file)  # Use PdfReader directly
+    pdf_reader = PdfReader(file)
     text = ""
     for page in pdf_reader.pages:
         text += page.extract_text()
